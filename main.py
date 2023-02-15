@@ -58,6 +58,14 @@ def main():
     print(alignment_score)
     print(seq1_alignment)
     print(seq2_alignment)
+    print("Align matrix")
+    print(test_NW._align_matrix)
+    print("GapA matrix")
+    print(test_NW._gapA_matrix)
+    print("GapB matrix")
+    print(test_NW._gapB_matrix)
+    print("Backtrace matrix")
+    print(test_NW._back)
     """
 
 if __name__ == "__main__":
