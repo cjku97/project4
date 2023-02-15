@@ -206,7 +206,7 @@ class NeedlemanWunsch:
         # Get final alignment score
         self.alignment_score = self._align_matrix[i][j]
         # Trace through back matrix to get alignment
-        while i > 0 or j > 0:
+        while i > 0 and j > 0:
         	back_step = self._back[i][j]
         	# Option 1: best score was a match
         	if back_step == 0:
@@ -220,7 +220,17 @@ class NeedlemanWunsch:
        			self.seqB_align = self._seqB[j-1] + self.seqB_align
        			j = j - 1
        		# Option 3: best score was a gap in seqB
-       		else:
+       		elif back_step == 1:
+       			self.seqA_align = self._seqA[i-1] + self.seqA_align
+       			self.seqB_align = "-" + self.seqB_align
+       			i = i - 1
+       	if i == 0 and j > 0:
+       		while j > 0:
+       			self.seqA_align = "-" + self.seqA_align
+       			self.seqB_align = self._seqB[j-1] + self.seqB_align
+       			j = j - 1
+       	if j == 0 and i > 0:
+       		while i > 0:
        			self.seqA_align = self._seqA[i-1] + self.seqA_align
        			self.seqB_align = "-" + self.seqB_align
        			i = i - 1
