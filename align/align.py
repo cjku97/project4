@@ -163,14 +163,14 @@ class NeedlemanWunsch:
         		# Fill in gapA_matrix
         		gapA_1 = self.gap_open + self.gap_extend + self._align_matrix[i][j-1]
         		gapA_2 = self.gap_extend + self._gapA_matrix[i][j-1]
-        		gapA_3 = self.gap_open + self.gap_extend + self._gapB_matrix[i][j-1]
-        		self._gapA_matrix[i][j] = max(gapA_1, gapA_2, gapA_3)
+        		#gapA_3 = self.gap_open + self.gap_extend + self._gapB_matrix[i][j-1]
+        		self._gapA_matrix[i][j] = max(gapA_1, gapA_2)
         		
         		# Fill in gapB_matrix
         		gapB_1 = self.gap_open + self.gap_extend + self._align_matrix[i-1][j]
-        		gapB_2 = self.gap_open + self.gap_extend + self._gapA_matrix[i-1][j]
+        		#gapB_2 = self.gap_open + self.gap_extend + self._gapA_matrix[i-1][j]
         		gapB_3 = self.gap_extend + self._gapB_matrix[i-1][j]
-        		self._gapB_matrix[i][j] = max(gapB_1, gapB_2, gapB_3)
+        		self._gapB_matrix[i][j] = max(gapB_1, gapB_3)
         		
         		# Fill in back matrix for backtracing
         		best_score = max(self._align_matrix[i][j], self._gapA_matrix[i][j], self._gapB_matrix[i][j])

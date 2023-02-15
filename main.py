@@ -16,7 +16,7 @@ def main():
     # TODO Align all species to humans and print species in order of most similar to human BRD
     # using gap opening penalty of -10 and a gap extension penalty of -1 and BLOSUM62 matrix
     test_NW = NeedlemanWunsch('substitution_matrices/BLOSUM62.mat', gap_open = -10, gap_extend = -1)
-    
+    """
     gg, _, _ = test_NW.align(hs_seq, gg_seq)
     mm, _, _ = test_NW.align(hs_seq, mm_seq)
     br, _, _ = test_NW.align(hs_seq, br_seq)
@@ -36,7 +36,7 @@ def main():
     	n = n-1
     print()
     
-    """
+    
     # MY TEST FUNCTIONS
     print("MY TEST 1")
     test1_seq, test1_header = read_fasta("./data/test_seq1.fa")
@@ -50,7 +50,7 @@ def main():
     print(seq1_alignment)
     print(seq2_alignment)
     print()
-    
+    """
     print("MY TEST 2")
     test3_seq, test1_header = read_fasta("./data/test_seq3.fa")
     test4_seq, test2_header = read_fasta("./data/test_seq4.fa")
@@ -66,7 +66,7 @@ def main():
     print(test_NW._gapB_matrix)
     print("Backtrace matrix")
     print(test_NW._back)
-    """
+    
 
 if __name__ == "__main__":
     main()
